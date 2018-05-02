@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TopCoin</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<table border="0">
+<tr>
+    <th>Icon</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Active masternodes</th>
+    <th>Coins daily</th>
+    <th>ROI</th>
+</tr>
+{% for coin in coins %}
+    <tr>
+        <td> <img src={{ coin.coin_img_url }}> </td>
+        <td>{{ coin.coin_name }}</td>
+        <td>{{ coin.coin_price }}$</td>
+        <td>{{ coin.active_masternodes }}</td>
+        <td>{{ coin.show_coins_daily }}</td>
+        <td>{{ coin.roi }}%</td>
+    </tr>
+{% endfor %}
+</table>
+</body>
+</html>

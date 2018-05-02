@@ -9,9 +9,13 @@ class Coin(models.Model):
     active_masternodes = models.IntegerField()
     coins_daily = models.FloatField()
     collaterial = models.IntegerField(default=1000)
+    rpc_port = models.IntegerField(default=0)
+
+    def show_coins_daily(self):
+        return round(self.coins_daily * 10)/10
 
     def roi(self):
-        result = (self.coins_daily * 36500)/(self.active_masternodes * self.collaterial)
+        result = round((self.coins_daily * 365000)/(self.active_masternodes * self.collaterial))/10
         return result
 
     def __str__(self):
